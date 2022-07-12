@@ -24,10 +24,16 @@ tinder_login_btn = driver.find_element("link text", "Log in")
 tinder_login_btn.click()
 
 time.sleep(3)
-facebook_login_btn = driver.find_element("xpath", '//*[@id="q1569938320"]/div/div/div[1]'
-                                                  '/div/div/div[3]/span/div[2]/button'
-                                         )
-facebook_login_btn.click()
+try:
+    facebook_login_btn = driver.find_element("xpath", '/html/body/div[2]/div/div/div[1]/div/div'
+                                                      '/div[3]/span/div[2]/button'
+                                             )
+    facebook_login_btn.click()
+except NoSuchElementException:
+    facebook_login_btn = driver.find_element("xpath", '/html/body/div[2]/div/div/div[1]/'
+                                                      'div/div/div[3]/span/div[2]/button'
+                                             )
+    facebook_login_btn.click()
 
 base_window = driver.window_handles[0]
 try:
